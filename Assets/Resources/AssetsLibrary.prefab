@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7500213124239443997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7500213124239443995}
+  - component: {fileID: 7500213124239443994}
+  m_Layer: 0
+  m_Name: AssetsLibrary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7500213124239443995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7500213124239443997}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 692.5, y: 453.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7500213124239443994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7500213124239443997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26370809bbad3294997da7cf7c132f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boulderDifficulties:
+  - {fileID: 11400000, guid: c267c8c83d4398042aa8a500a5b9ccb6, type: 2}
+  - {fileID: 11400000, guid: ae1d3ccb0a6e72847a3717b8f7e3907a, type: 2}
+  - {fileID: 11400000, guid: 282748ae47f6625488b1a82c6c5d2328, type: 2}
+  - {fileID: 11400000, guid: 4e5a4d2ec064a454fad8e01388e3f2b1, type: 2}
+  - {fileID: 11400000, guid: d981c5f063b81034d95181e46bb500fc, type: 2}
+  traverseDifficulties:
+  - {fileID: 11400000, guid: dd87010b6630f7d4b86f2b082c311442, type: 2}
+  - {fileID: 11400000, guid: ff916bf08f74168489ba1e8886df8a3a, type: 2}
+  - {fileID: 11400000, guid: 7272ab1701520034da7366fb3ebfd680, type: 2}
+  - {fileID: 11400000, guid: bac4f4fb1ad4b4845b036b9cb444ad56, type: 2}
+  - {fileID: 11400000, guid: b93a53b6d80326944b863148685279c2, type: 2}
+  - {fileID: 11400000, guid: c785f629b04de894e859d6f988bba745, type: 2}
+  - {fileID: 11400000, guid: 4691ba47ec22d194089fd99af0fa6930, type: 2}
+  - {fileID: 11400000, guid: 57998758deb19b141846680b6a8b4c1b, type: 2}
+  - {fileID: 11400000, guid: 23db1c9f41c536b42acaa6c7b40b4c0c, type: 2}
+  boulderObject: {fileID: 6350482077576367309, guid: 8cf5715b59af0994ea221649bb33b735, type: 3}
+  intersectionObject: {fileID: 6350482077576367309, guid: fbd14ffbdb36faa4a8823bd60b9afdb6, type: 3}
+  difficultySeparator: {fileID: 827956190559288934, guid: e9376572980050645a391c165d55c8b4, type: 3}
+  boulderDifficultyDisplay: {fileID: 7009107880870063714, guid: 8896f44484e0f6a42ac0f87b228ba467, type: 3}
+  traverseDifficultyDisplay: {fileID: 7009107880870063714, guid: 4cea65cb27850ac469f445b07e46379a, type: 3}
