@@ -7,17 +7,16 @@ public class CanvasController : MonoBehaviour
 {
     public void OnShowPanel(Animator animator)
     {
-        animator.SetBool("showPanel", true);
-        AppController.currentWindow = new WindowTree(AppController.currentWindow, animator.gameObject);
+        AppController.Front(animator);
     }
 
     public void OnHidePanel(Animator animator)
     {
-        if (AppController.currentWindow.current == animator.gameObject)
+        AppController.Back();
+        /*if (AppController.currentWindow.current == animator)
         {
-            AppController.Back();
             return;
         }
-        animator.SetBool("showPanel", false);
+        animator.SetBool("showPanel", false);*/
     }
 }

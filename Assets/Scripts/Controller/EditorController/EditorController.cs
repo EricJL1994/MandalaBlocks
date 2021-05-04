@@ -64,7 +64,7 @@ public abstract class EditorController : MonoBehaviour
     public void SetDisplay(bool editing)
     {
         editingProblem = null;
-        buttonText.text = editing ? "Edit" : "Create";
+        buttonText.text = editing ? "Editar" : "Crear";
         difficultiesDropdown.interactable = !editing;
         numberslider.interactable = !editing;
     }

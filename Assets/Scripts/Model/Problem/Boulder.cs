@@ -19,14 +19,30 @@ public class Boulder : Problem, IEquatable<Boulder>, IComparable
     /// <param name="number"></param>
     /// <param name="date"></param>
     /// <param name="wall"></param>
-    public Boulder(Difficulty difficulty, int number, DateTime date, BoulderWall wall)
+    public Boulder(Difficulty difficulty, int number, DateTime date, BoulderWall wall, ClimbingHold hold)
     {
         this.difficulty = difficulty;
         this.number = number;
         this.date = date;
         this.wall = wall;
+        this.hold = hold;
         //this.intersections = new List<Problem>();
     }
+
+
+    public Boulder(Difficulty difficulty, int number, DateTime date, BoulderWall wall) : this(
+        difficulty, number, date, wall, AssetsLibrary.Instance.GetClimbingHold("Verde")) { }
+    
+    
+    /// <summary>
+    /// Constructor for a boulder created now
+    /// </summary>
+    /// <param name="difficulty"></param>
+    /// <param name="number"></param>
+    /// <param name="wall"></param>
+    public Boulder(Difficulty difficulty, int number, BoulderWall wall) : this(
+        difficulty, number, DateTime.Now, wall) { }
+
 
     /// <summary>
     /// Constructor from json
@@ -36,15 +52,7 @@ public class Boulder : Problem, IEquatable<Boulder>, IComparable
     {
         Deserialize(json);
     }
-
-    /// <summary>
-    /// Constructor for a boulder created now
-    /// </summary>
-    /// <param name="difficulty"></param>
-    /// <param name="number"></param>
-    /// <param name="wall"></param>
-    public Boulder(Difficulty difficulty, int number, BoulderWall wall) : this(difficulty, number, DateTime.Now, wall) { }
-
+    
     /// <summary>
     /// Constructor to create a copy
     /// </summary>
@@ -54,7 +62,7 @@ public class Boulder : Problem, IEquatable<Boulder>, IComparable
     #endregion
 
     #region HELPERS
-    
+
     public new int CompareTo(object obj)
     {
         return obj is Boulder other ?

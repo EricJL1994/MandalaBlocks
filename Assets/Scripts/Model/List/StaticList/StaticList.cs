@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -53,8 +54,19 @@ public abstract class StaticList<T, Helper> where T : Problem where Helper : Lis
                 }
             }
         }
-
+        oldestList.Sort();
         return oldestList;
+    }
+
+    public static List<T> GetOlderThan(DateTime date)
+    {
+        List<T> olderList = new List<T>();
+
+        foreach (Difficulty difficulty in dictionary.Keys)
+            foreach (T item in dictionary[difficulty])
+                if (item.date <= date) olderList.Add(item);
+
+        return olderList;
     }
 
 }

@@ -5,12 +5,13 @@ using UnityEngine;
 public class WindowTree
 {
     public WindowTree previous = null;
-    public GameObject current;
+    public Animator current;
 
-    public WindowTree(WindowTree previous, GameObject gameObject)
+    public WindowTree(WindowTree previous, Animator animator)
     {
         this.previous = previous;
-        current = gameObject;
+        current = animator;
+        current.SetBool("showPanel", true);
     }
 
     public WindowTree()
@@ -19,17 +20,11 @@ public class WindowTree
 
     public WindowTree Back()
     {
-        if (previous != null)
-        {
-            current.GetComponent<Animator>().SetBool("showPanel", false);
+        /*if (previous != null)
+        {*/
+            current.SetBool("showPanel", false);
             return previous;
-        }
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-//Ask for the saved files
-        Application.Quit();
-#endif
-        return null;
+        /*}
+        return null;*/
     }
 }

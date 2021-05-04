@@ -8,6 +8,7 @@ public class BoulderEditorController : EditorController
 {
     public static BoulderEditorController instance;
     [SerializeField] private Transform intersectionsList = default;
+    [SerializeField] private Dropdown holdsDropdown = default;
     private List<Problem> intersections;
 
     private void Awake()
@@ -20,7 +21,7 @@ public class BoulderEditorController : EditorController
     void Start()
     {
         Setup(AssetsLibrary.Instance.BoulderDifficultiesNames());
-
+        holdsDropdown.AddOptions(AssetsLibrary.Instance.CLimbingHoldsNames());
         intersections = new List<Problem>();
     }
 
@@ -47,7 +48,9 @@ public class BoulderEditorController : EditorController
                           difficultiesDropdown.options[difficultiesDropdown.value].text),
                       (int)numberslider.value,
                       date,
-                      (BoulderWall)wallsDropdown.value);
+                      (BoulderWall)wallsDropdown.value,
+                      AssetsLibrary.Instance.GetClimbingHold(
+                          holdsDropdown.options[holdsDropdown.value].text));
         //boulder.SetIntersections(intersections);
         if (editingProblem != null)
         {
@@ -64,10 +67,17 @@ public class BoulderEditorController : EditorController
     public void OnEdit(Boulder boulder)
     {
         wallsDropdown.value = (int)boulder.wall;
-
+        List<Dropdown.OptionData> options = holdsDropdown.options;
+        for (int i = 0; i < options.Count; i++)
+        {
+            if (options[i].text.Equals(boulder.hold.ToString()))
+            {
+                holdsDropdown.value = i;
+            }
+        }
         base.OnEdit(boulder);
 
-        OnRefresh();
+        //OnRefresh();
     }
 
     public void OnRefresh()
@@ -87,7 +97,7 @@ public class BoulderEditorController : EditorController
     public new void SetDisplay(bool editing)
     {
         OldestDisplay.dirtyTraverses = true;
-        tittle.text = editing ? "Edit Boulder" : "Create Boulder";
+        tittle.text = editing ? "Editar bloque" : "Crear bloque";
         base.SetDisplay(editing);
     }
 }

@@ -8,6 +8,7 @@ public class BoulderEntryDisplay : MonoBehaviour
     [SerializeField] private Image difficultyColor = default;
     [SerializeField] private Text numberText = default;
     [SerializeField] private Text wallText = default;
+    [SerializeField] private Image holdsColor = default;
     [SerializeField] private Text dateText = default;
 
     public Problem problem;
@@ -23,6 +24,7 @@ public class BoulderEntryDisplay : MonoBehaviour
         numberText.text = problem.number.ToString();
         if (problem is Boulder b) wallText.text = b.wall.ToString();
         if (problem is Traverse t) wallText.text = t.walls[0].ToString();
+        holdsColor.color = problem.hold.color;
         dateText.text = problem.date.ToString("d");
     }
 

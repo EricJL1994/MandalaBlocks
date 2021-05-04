@@ -59,6 +59,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4691ba47ec22d194089fd99af0fa6930, type: 2}
   - {fileID: 11400000, guid: 57998758deb19b141846680b6a8b4c1b, type: 2}
   - {fileID: 11400000, guid: 23db1c9f41c536b42acaa6c7b40b4c0c, type: 2}
+  climbingHolds:
+  - {fileID: 11400000, guid: 9b357235485279e45beab83f288e80e9, type: 2}
+  - {fileID: 11400000, guid: 3bdcced4ee7f0e248b577983b94d9622, type: 2}
+  - {fileID: 11400000, guid: 4ee128bfafe924046a92b86364e9bb45, type: 2}
+  - {fileID: 11400000, guid: 0bbac57361e1d084b826c275608c9ae0, type: 2}
+  - {fileID: 11400000, guid: 8753ce967c09b8f47ba0806d08757dfe, type: 2}
+  - {fileID: 11400000, guid: 98d613e0bdea78a4e90dda16d4452496, type: 2}
+  - {fileID: 11400000, guid: e8951710c800a74439b68f31240d791d, type: 2}
+  - {fileID: 11400000, guid: 9f41ab986acf1904bbb81470b1cde50e, type: 2}
+  - {fileID: 11400000, guid: f98b4f9175148cb4e93788658e87384e, type: 2}
+  - {fileID: 11400000, guid: aaf40f0f667d72349b5e64512aac9b33, type: 2}
+  - {fileID: 11400000, guid: abce022319b4eee45873a4d353c55a38, type: 2}
+  - {fileID: 11400000, guid: 3ade16fec253ae7418ba4980bb09b407, type: 2}
+  - {fileID: 11400000, guid: e9ba57279450a8d418f6ad1bdf1f5e38, type: 2}
+  - {fileID: 11400000, guid: 7ff3c4c980552a540acd492e3fa5e550, type: 2}
+  - {fileID: 11400000, guid: aedaa7ba9aa389b4c9367432879fdb1a, type: 2}
+  - {fileID: 11400000, guid: 947e887c50d4c8649b74dcb1549c248d, type: 2}
   boulderObject: {fileID: 6350482077576367309, guid: 8cf5715b59af0994ea221649bb33b735, type: 3}
   intersectionObject: {fileID: 6350482077576367309, guid: fbd14ffbdb36faa4a8823bd60b9afdb6, type: 3}
   difficultySeparator: {fileID: 827956190559288934, guid: e9376572980050645a391c165d55c8b4, type: 3}

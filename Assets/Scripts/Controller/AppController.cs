@@ -8,13 +8,31 @@ public class AppController : MonoBehaviour
     public static bool rebuildView = false;
     public RectTransform mainMenuTransform;
     public static WindowTree currentWindow = null;
+    public Animator exitMenu;
 
     void Start()
+    {
+        Invoke(nameof(ReadAll), .5f);
+        //Invoke(nameof(PostAll), 2f);
+        //currentWindow = new WindowTree();
+        //Debug.Log(JsonFIleInterface.b.Serialize());
+    }
+
+    public void PostAll()
+    {
+        //Debug.Log("PostAll: " + boulders.Count);
+        foreach (Boulder boulder in StaticBoulderList.GetOlderThan(System.DateTime.Now))
+        {
+            //Debug.Log(boulder);
+            StartCoroutine(WWWParser.PostToWeb(boulder.Serialize()));
+        }
+    }
+
+    private void ReadAll()
     {
         JsonFIleInterface.ReadAllFiles();
         OldestDisplay.dirtyBoulders = true;
         OldestDisplay.dirtyTraverses = true;
-        currentWindow = new WindowTree();
     }
 
     public void OnSaveProblems()
@@ -40,12 +58,42 @@ public class AppController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("Backing");
             Back();
         }
     }
 
     public static void Back()
     {
+        //Debug.Log("Back: " + currentWindow.current.gameObject.name);
+        if (currentWindow == null)
+        {
+            Debug.Log("null");
+            Front(GameObject.Find("ExitMenu").GetComponent<Animator>());
+            return;
+        }
         currentWindow = currentWindow.Back();
+    }
+
+    public static void Front(Animator animator)
+    {
+        Debug.Log("Front: " + animator.gameObject.name);
+        currentWindow = new WindowTree(currentWindow, animator);
+    }
+
+    public void Quit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+//Ask for the saved files
+        Application.Quit();
+#endif
+    }
+
+    public void SaveAndQuit()
+    {
+        OnSaveProblems();
+        Quit();
     }
 }

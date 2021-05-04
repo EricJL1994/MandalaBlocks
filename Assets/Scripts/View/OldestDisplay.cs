@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -39,7 +40,7 @@ public class OldestDisplay : MonoBehaviour
             Destroy(transform.gameObject);
         }
 
-        foreach (Boulder boulder in StaticBoulderList.GetLastDate())
+        foreach (Boulder boulder in StaticBoulderList.GetOlderThan(DateTime.Now.AddDays(-50)))
         {
             BoulderEntryDisplay.InstanciateListObject(boulder, oldestList.transform).GetComponent<Button>().interactable = false;
         }
@@ -54,7 +55,7 @@ public class OldestDisplay : MonoBehaviour
             Destroy(transform.gameObject);
         }
 
-        foreach (Traverse traverse in StaticTraverseList.GetLastDate())
+        foreach (Traverse traverse in StaticTraverseList.GetOlderThan(DateTime.Now.AddDays(-50)))
         {
             BoulderEntryDisplay.InstanciateListObject(traverse, oldestList.transform).GetComponent<Button>().interactable = false;
         }

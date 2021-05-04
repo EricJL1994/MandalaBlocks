@@ -21,6 +21,7 @@ public class AssetsLibrary : MonoBehaviour
 
     [SerializeField] public List<Difficulty> boulderDifficulties;
     [SerializeField] public List<Difficulty> traverseDifficulties;
+    [SerializeField] public List<ClimbingHold> climbingHolds;
     [SerializeField] public GameObject boulderObject;
     [SerializeField] public GameObject intersectionObject;
     [SerializeField] public GameObject difficultySeparator;
@@ -32,6 +33,7 @@ public class AssetsLibrary : MonoBehaviour
 
     private Dictionary<string, Difficulty> boulderDictionary;
     private Dictionary<string, Difficulty> traverseDictionary;
+    private Dictionary<string, ClimbingHold> climbingHoldsDictionary;
 
     public List<string> BoulderDifficultiesNames()
     {
@@ -41,14 +43,20 @@ public class AssetsLibrary : MonoBehaviour
     {
         return new List<string>(traverseDictionary.Keys);
     }
+    public List<string> CLimbingHoldsNames()
+    {
+        return new List<string>(climbingHoldsDictionary.Keys);
+    }
 
 
     private void Awake()
     {
         boulderDifficulties.Sort();
         traverseDifficulties.Sort();
+        climbingHolds.Sort();
         boulderDictionary = new Dictionary<string, Difficulty>();
         traverseDictionary = new Dictionary<string, Difficulty>();
+        climbingHoldsDictionary = new Dictionary<string, ClimbingHold>();
 
         foreach (Difficulty item in boulderDifficulties)
         {
@@ -59,7 +67,11 @@ public class AssetsLibrary : MonoBehaviour
         {
             traverseDictionary.Add(item.ToString(), item);
         }
-        
+
+        foreach (ClimbingHold item in climbingHolds)
+        {
+            climbingHoldsDictionary.Add(item.ToString(), item);
+        }
     }
 
     public Difficulty GetBoulderDifficulty (string name)
@@ -70,5 +82,10 @@ public class AssetsLibrary : MonoBehaviour
     public Difficulty GetTraverseDifficulty(string name)
     {
         return traverseDictionary[name];
+    }
+
+    public ClimbingHold GetClimbingHold(string name)
+    {
+        return climbingHoldsDictionary[name];
     }
 }

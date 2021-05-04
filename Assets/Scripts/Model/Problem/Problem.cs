@@ -10,8 +10,10 @@ public abstract class Problem : IEquatable<Problem>
     [SerializeField] protected string dificultyName;
     public int number;
     public DateTime date;
+    [NonSerialized] public ClimbingHold hold;
+    [SerializeField] protected string holdColor = "Azul";
     [SerializeField] protected long dateValue;
-    public bool pending = false/*UnityEngine.Random.Range(0f, 1f) > .5f*/;
+    public bool pending = false;
     //public List<Problem> intersections;
     [SerializeField] protected string[] intersectionsName;
 
@@ -45,6 +47,7 @@ public abstract class Problem : IEquatable<Problem>
     {
         dateValue = date.Ticks;
         dificultyName = difficulty.ToString();
+        holdColor = hold.ToString();
 
         List<string> names = new List<string>();
         /*foreach (Problem problem in intersections)
@@ -58,6 +61,7 @@ public abstract class Problem : IEquatable<Problem>
     public void Deserialize(string json)
     {
         JsonUtility.FromJsonOverwrite(json, this);
+        hold = AssetsLibrary.Instance.GetClimbingHold(holdColor);
         date = new DateTime(dateValue);
     }
 

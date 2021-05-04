@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class JsonFIleInterface
 {
-    //Boulder b = new Boulder(AssetsLibrary.Instance.GetBoulderDifficulty("Green"), 1, 0);
+    public static Boulder b = new Boulder(AssetsLibrary.Instance.GetBoulderDifficulty("Orange"), 5, 0);
     //Traverse t = new Traverse(AssetsLibrary.Instance.GetTraverseDifficulty("Violet"), 1, new List<BoulderWall>() { 0 });
 
     public static void ReadAllFiles()

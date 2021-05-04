@@ -70,7 +70,7 @@ public class TraverseEditorController : EditorController
     public new void SetDisplay(bool editing)
     {
         OldestDisplay.dirtyTraverses = true;
-        tittle.text = editing ? "Edit Traverse" : "Create Traverse";
+        tittle.text = editing ? "Editar travesía" : "Crear travesía";
         base.SetDisplay(editing);
     }
 }
